@@ -15,25 +15,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tvImprovements"
-        android:layout_width="412dp"
-        android:layout_height="528dp"
+        android:id="@+id/rvImprovements"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias=".0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoToMain"
-        app:layout_constraintVertical_bias="0.967" />
+        app:layout_constraintTop_toBottomOf="@+id/tvShopDescription"
+        app:layout_constraintVertical_bias="0.49" />
 
     <TextView
-        android:id="@+id/twShopDescription"
+        android:id="@+id/tvShopDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Here you can buy various improvements"
-        app:layout_constraintBottom_toTopOf="@+id/tvImprovements"
+        app:layout_constraintBottom_toTopOf="@+id/rvImprovements"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoToMain" />
+        app:layout_constraintTop_toBottomOf="@+id/btnGoToMain"
+        app:layout_constraintVertical_bias="0.451" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
