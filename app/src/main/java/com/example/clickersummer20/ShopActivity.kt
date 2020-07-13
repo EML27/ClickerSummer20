@@ -1,11 +1,30 @@
 package com.example.clickersummer20
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.example.clickersummer20.rv1.Rv1Adapter
+import com.example.clickersummer20.rv2.Rv2Adapter
+import kotlinx.android.synthetic.main.activity_shop.*
 
 class ShopActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop)
+
+        rvItems.adapter = Rv1Adapter(ItemActiveName.list) {
+            Toast.makeText(this, it.upgrade, Toast.LENGTH_SHORT).show()
+        }
+
+        rvItemsIncrease.adapter = Rv2Adapter(ItemPassiveName.list){
+            Toast.makeText(this, it.upgrade,Toast.LENGTH_SHORT).show()
+        }
+
+        btnGoToMain.setOnClickListener{
+            startActivity(Intent(this,MainActivity::class.java))
+        }
     }
+
 }
