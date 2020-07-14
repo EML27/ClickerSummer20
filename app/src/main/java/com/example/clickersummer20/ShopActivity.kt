@@ -21,7 +21,7 @@ class ShopActivity : AppCompatActivity() {
         rvItems.adapter = Rv1Adapter(ItemActiveName.list, { itemActive: ItemActive, textView: TextView ->
             var counter = sp.getLong(Keys.COUNT_OF_OIL,0)
             if (counter<itemActive.cost){
-                Toast.makeText(this,"У вас недостаточно денег", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"У тебя нет денег, иди работай", Toast.LENGTH_SHORT).show()
             }
             else{
                 sp.edit().apply{
@@ -41,7 +41,7 @@ class ShopActivity : AppCompatActivity() {
         rvItemsIncrease.adapter = Rv2Adapter(ItemPassiveName.list, { itemPassive: ItemPassive, textView: TextView ->
             var counter = sp.getLong(Keys.COUNT_OF_OIL,0)
             if (counter<itemPassive.cost){
-                Toast.makeText(this,"У вас недостаточно днегег",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"У тебя нет денег, иди работай",Toast.LENGTH_SHORT).show()
             }
             else {
                 sp.edit().apply() {

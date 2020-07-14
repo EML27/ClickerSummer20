@@ -19,6 +19,7 @@ class Rv2ViewHolder(
     RecyclerView.ViewHolder(containerView), LayoutContainer {
 
     fun bind(item: ItemPassive) {
+        initLambda(item,tvElementCounter)
         Name_item.text = item.nameItem
         Upgrade.text = item.upgrade.toString()
         btnToast.setOnClickListener { clickLambda(item,tvElementCounter) }

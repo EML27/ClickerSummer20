@@ -20,7 +20,6 @@ class Rv1ViewHolder(
 ) :
     RecyclerView.ViewHolder(containerView), LayoutContainer {
 
-
     fun bind(item: ItemActive) {
         initLambda(item,tvElementCounter)
         Name_item.text = item.nameItem
