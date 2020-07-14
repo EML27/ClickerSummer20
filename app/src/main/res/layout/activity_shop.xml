@@ -28,28 +28,57 @@
         android:id="@+id/tvShopDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="Here you can buy various improvements"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnGoToMain" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvItems"
-        android:layout_width="170dp"
+    <TextView
+        android:id="@+id/tvForActiveIncome"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:text="@string/for_active_income"
+        app:layout_constraintBottom_toTopOf="@+id/rvActiveImprovements"
+        app:layout_constraintEnd_toEndOf="@id/rvActiveImprovements"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvShopDescription"
+        android:layout_marginStart="8dp"/>
+    <TextView
+        android:id="@+id/tvForPassiveIncome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/for_passive_income"
+        app:layout_constraintTop_toBottomOf="@id/tvShopDescription"
+        app:layout_constraintBottom_toTopOf="@id/rvPassiveImprovements"
+        app:layout_constraintStart_toStartOf="@id/rvPassiveImprovements"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvActiveImprovements"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toStartOf="@id/rvItemsIncrease"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rvPassiveImprovements"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvShopDescription"
         tools:listitem="@layout/item_view" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvItemsIncrease"
-        android:layout_width="170dp"
+        android:id="@+id/rvPassiveImprovements"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/rvItems"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/rvActiveImprovements"
         app:layout_constraintTop_toBottomOf="@+id/tvShopDescription"
         tools:listitem="@layout/item_view" />
 

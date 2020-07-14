@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ClickerSummer20</string>
+    <string name="for_active_income">For active income</string>
+    <string name="for_passive_income">For passive income</string>
 </resources>
