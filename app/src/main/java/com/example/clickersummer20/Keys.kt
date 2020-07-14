@@ -12,5 +12,17 @@ class Keys {
 
         val CLICK_INCREASE_OIL = "click_increase" // Значение, на которое будет увеличиваться счётчик
                                                   //    валюты при клике на кнопку
+        val COLLEAGUE_ID = "colleague"
+
+        val DIPPER_ID = "dipper"
+
+        val BOER_ID = "boer"
+
+        val MINE_ID = "mine"
+
+        val LINER_ID = "liner"
+
+        val COMPANY_ID = "company"
+
     }
 }
