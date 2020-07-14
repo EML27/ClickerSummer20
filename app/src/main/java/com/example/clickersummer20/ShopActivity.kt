@@ -38,9 +38,26 @@ class ShopActivity : AppCompatActivity() {
 
         })
 
-        rvItemsIncrease.adapter = Rv2Adapter(ItemPassiveName.list){
-            Toast.makeText(this, it.upgrade,Toast.LENGTH_SHORT).show()
-        }
+        rvItemsIncrease.adapter = Rv2Adapter(ItemPassiveName.list, { itemPassive: ItemPassive, textView: TextView ->
+            var counter = sp.getLong(Keys.COUNT_OF_OIL,0)
+            if (counter<itemPassive.cost){
+                Toast.makeText(this,"У вас недостаточно днегег",Toast.LENGTH_SHORT).show()
+            }
+            else {
+                sp.edit().apply() {
+                    putLong(Keys.COUNT_OF_OIL, counter - itemPassive.cost)
+                    putInt(itemPassive.id, sp.getInt(itemPassive.id, 0) + 1)
+                    apply()
+                }
+                textView.text = sp.getInt(itemPassive.id, 0).toString()
+            }
+        },
+            {
+                itemPassive: ItemPassive, textView: TextView ->
+                var sp = getSharedPreferences(Keys.DATA_ABOUT_APP,Context.MODE_PRIVATE)
+                textView.text = sp.getInt(itemPassive.id,0).toString()
+            })
+
 
         btnGoToMain.setOnClickListener{
             startActivity(Intent(this,MainActivity::class.java))

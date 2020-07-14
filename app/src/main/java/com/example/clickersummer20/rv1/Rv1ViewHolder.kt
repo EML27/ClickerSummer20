@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.item_view.*
 class Rv1ViewHolder(
     override val containerView: View,
     private val clickLambda: (ItemActive, TextView) -> Unit,
-    val initLambda: (ItemActive,TextView) -> Unit
+    private val initLambda: (ItemActive,TextView) -> Unit
 ) :
     RecyclerView.ViewHolder(containerView), LayoutContainer {
 
@@ -25,11 +25,7 @@ class Rv1ViewHolder(
         initLambda(item,tvElementCounter)
         Name_item.text = item.nameItem
         Upgrade.text = item.upgrade.toString()
-        btnToast.setOnClickListener {
-            clickLambda(item, tvElementCounter)
-
-
-        }
+        btnToast.setOnClickListener { clickLambda(item, tvElementCounter) }
     }
 
     companion object {

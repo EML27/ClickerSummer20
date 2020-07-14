@@ -18,5 +18,11 @@ class Keys {
 
         val BOER_ID = "boer"
 
+        val MINE_ID = "mine"
+
+        val LINER_ID = "liner"
+
+        val COMPANY_ID = "company"
+
     }
 }
