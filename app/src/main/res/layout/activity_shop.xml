@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShopActivity">
+    tools:context=".ShopActivity"
+    android:background="@color/primary">
 
     <Button
         android:id="@+id/btnGoToMain"
@@ -12,7 +13,11 @@
         android:layout_height="wrap_content"
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp"
+        style="@style/btnMainStyle"
+        />
 
 <!--    <androidx.recyclerview.widget.RecyclerView-->
 <!--        android:id="@+id/rvImprovements"-->
@@ -26,13 +31,16 @@
 
     <TextView
         android:id="@+id/tvShopDescription"
+        style="@style/tvMainStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Here you can buy various improvements"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGoToMain" />
+        app:layout_constraintTop_toBottomOf="@+id/btnGoToMain"
+        />
 
     <TextView
         android:id="@+id/tvForActiveIncome"
@@ -43,17 +51,19 @@
         app:layout_constraintEnd_toEndOf="@id/rvActiveImprovements"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvShopDescription"
-        android:layout_marginStart="8dp"/>
+        android:layout_marginStart="8dp"
+        style="@style/tvMainStyle"/>
+
     <TextView
         android:id="@+id/tvForPassiveIncome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:text="@string/for_passive_income"
-        app:layout_constraintTop_toBottomOf="@id/tvShopDescription"
         app:layout_constraintBottom_toTopOf="@id/rvPassiveImprovements"
-        app:layout_constraintStart_toStartOf="@id/rvPassiveImprovements"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="8dp"/>
+        app:layout_constraintEnd_toEndOf="@+id/rvPassiveImprovements"
+        app:layout_constraintTop_toBottomOf="@id/tvShopDescription"
+        style="@style/tvMainStyle"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvActiveImprovements"

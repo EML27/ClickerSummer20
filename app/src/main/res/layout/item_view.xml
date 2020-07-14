@@ -12,7 +12,8 @@
         android:layout_margin="4dp"
         android:text="Name item"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/tvMainStyle"/>
 
     <TextView
         android:id="@+id/Upgrade"
@@ -22,7 +23,8 @@
         android:text="Upgrade"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Name_item" />
+        app:layout_constraintTop_toBottomOf="@id/Name_item"
+        style="@style/tvMainStyle"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,17 +33,19 @@
         android:text="0"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="4dp"/>
+        android:layout_margin="4dp"
+        style="@style/tvMainStyle"/>
 
     <Button
         android:id="@+id/btnToast"
-        android:layout_width="70dp"
-        android:layout_height="43dp"
-        android:layout_margin="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:layout_marginEnd="4dp"
-        android:text="Do"
+        android:text="Buy"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        style="@style/btnMainStyle"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
