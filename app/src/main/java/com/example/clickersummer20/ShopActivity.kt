@@ -18,7 +18,7 @@ class ShopActivity : AppCompatActivity() {
 
         var sp = getSharedPreferences(Keys.DATA_ABOUT_APP, Context.MODE_PRIVATE)
 
-        rvItems.adapter = Rv1Adapter(ItemActiveName.list) { itemActive: ItemActive, textView: TextView ->
+        rvItems.adapter = Rv1Adapter(ItemActiveName.list, { itemActive: ItemActive, textView: TextView ->
             var counter = sp.getLong(Keys.COUNT_OF_OIL,0)
             if (counter<itemActive.cost){
                 Toast.makeText(this,"У вас недостаточно денег", Toast.LENGTH_SHORT).show()
@@ -27,10 +27,16 @@ class ShopActivity : AppCompatActivity() {
                 sp.edit().apply{
                     putLong(Keys.COUNT_OF_OIL,counter-itemActive.cost)
                     putInt(itemActive.id,sp.getInt(itemActive.id,0)+1)
+                    apply()
                 }
                 textView.text = sp.getInt(itemActive.id,0).toString()
             }
-        }
+        },
+            { itemActive: ItemActive, textView: TextView ->
+                var sp = getSharedPreferences(Keys.DATA_ABOUT_APP, Context.MODE_PRIVATE)
+            textView.text = sp.getInt(itemActive.id,0).toString()
+
+        })
 
         rvItemsIncrease.adapter = Rv2Adapter(ItemPassiveName.list){
             Toast.makeText(this, it.upgrade,Toast.LENGTH_SHORT).show()
