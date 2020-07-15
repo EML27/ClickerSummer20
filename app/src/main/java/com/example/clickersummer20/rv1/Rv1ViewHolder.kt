@@ -24,7 +24,9 @@ class Rv1ViewHolder(
         initLambda(item,tvElementCounter)
         Name_item.text = item.nameItem
         Upgrade.text = item.upgrade.toString()
-        btnToast.setOnClickListener { clickLambda(item, tvElementCounter) }
+        btnToast.text=item.cost.toString()
+        btnToast.setOnClickListener { clickLambda(item, tvElementCounter)
+        }
     }
 
     companion object {

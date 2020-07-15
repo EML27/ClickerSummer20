@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         var sp = getSharedPreferences(Keys.DATA_ABOUT_APP, Context.MODE_PRIVATE)
 
+
         checkSharedPref(sp)
 
         startService() // если уже запущен, то повторного запуска не будет(смотреть реализацию)
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         if(!sp.contains(Keys.COUNT_OF_OIL)) {
             sp.edit().apply{
                 putLong(Keys.COUNT_OF_OIL,0)
-                putLong(Keys.INCREASE_OIL,1)
+                putLong(Keys.INCREASE_OIL,0)
                 putLong(Keys.CLICK_INCREASE_OIL,1)
                 apply()
             }
