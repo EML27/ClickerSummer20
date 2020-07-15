@@ -18,7 +18,7 @@ class ShopActivity : AppCompatActivity() {
 
         var sp = getSharedPreferences(Keys.DATA_ABOUT_APP, Context.MODE_PRIVATE)
 
-        rvItems.adapter = Rv1Adapter(ItemActiveName.list, { itemActive: ItemActive, textView: TextView ->
+        rvActiveImprovements.adapter = Rv1Adapter(ItemActiveName.list, { itemActive: ItemActive, textView: TextView ->
             var counter = sp.getLong(Keys.COUNT_OF_OIL,0)
             if (counter<itemActive.cost){
                 Toast.makeText(this,"У тебя нет денег, иди работай", Toast.LENGTH_SHORT).show()
@@ -38,7 +38,7 @@ class ShopActivity : AppCompatActivity() {
 
         })
 
-        rvItemsIncrease.adapter = Rv2Adapter(ItemPassiveName.list, { itemPassive: ItemPassive, textView: TextView ->
+        rvPassiveImprovements.adapter = Rv2Adapter(ItemPassiveName.list, { itemPassive: ItemPassive, textView: TextView ->
             var counter = sp.getLong(Keys.COUNT_OF_OIL,0)
             if (counter<itemPassive.cost){
                 Toast.makeText(this,"У тебя нет денег, иди работай",Toast.LENGTH_SHORT).show()
