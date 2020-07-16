@@ -23,9 +23,10 @@ class Rv1ViewHolder(
     fun bind(item: ItemActive) {
         initLambda(item,tvElementCounter)
         Name_item.text = item.nameItem
-        Upgrade.text = item.upgrade.toString()
+        Upgrade.text = "+${item.upgrade}/клик"
         btnToast.text=item.cost.toString()
         btnToast.setOnClickListener { clickLambda(item, tvElementCounter)
+            btnToast.text = item.cost.toString()
         }
     }
 

@@ -1,15 +1,14 @@
 package com.example.clickersummer20
 
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
-
 
 
 class IncreaseCountOfOil : Service() {
@@ -61,9 +60,11 @@ class IncreaseCountOfOil : Service() {
             .setContentTitle("Пассивный доход... ${getSharedPreferences(Keys.DATA_ABOUT_APP, Context.MODE_PRIVATE)
                 .getLong(Keys.COUNT_OF_OIL,0)}")
             .setSmallIcon(R.drawable.ic_android_black_24dp)
-            .setVibrate(null)
-            .setSound(null)
+//            .setVibrate(null)
+//            .setSound(null)
             .build()
+
+        not.flags = not.flags or Notification.FLAG_ONGOING_EVENT
 
         notManager.notify(1,not)
         startForeground(1, not)

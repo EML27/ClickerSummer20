@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     private fun getCountOfOil(sp: SharedPreferences) {
         val timer = Timer()
         timer.schedule(object : TimerTask() {
@@ -65,7 +64,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun checkSharedPref(sp: SharedPreferences) {
         if(!sp.contains(Keys.COUNT_OF_OIL)) {
-            sp.edit().apply{
+            sp.edit().apply {
                 putLong(Keys.COUNT_OF_OIL,0)
                 putLong(Keys.INCREASE_OIL,0)
                 putLong(Keys.CLICK_INCREASE_OIL,1)
