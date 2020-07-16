@@ -2,14 +2,18 @@ package com.example.clickersummer20
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import com.example.clickersummer20.rv1.Rv1Adapter
 import com.example.clickersummer20.rv2.Rv2Adapter
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_shop.*
 import kotlinx.android.synthetic.main.item_view.*
+import java.util.*
+import kotlin.math.pow
 
 class ShopActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +22,8 @@ class ShopActivity : AppCompatActivity() {
         setContentView(R.layout.activity_shop)
 
         var sp = getSharedPreferences(Keys.DATA_ABOUT_APP, Context.MODE_PRIVATE)
+
+        getCountOfOil(sp)
 
         rvActiveImprovements.adapter = Rv1Adapter(ItemActiveName.list, { itemActive: ItemActive, textView: TextView ->
             var counter = sp.getLong(Keys.COUNT_OF_OIL,0)
@@ -33,11 +39,16 @@ class ShopActivity : AppCompatActivity() {
                     apply()
                 }
                 textView.text = sp.getInt(itemActive.id,0).toString()
-                itemActive.cost = (itemActive.cost * 1.2).toInt()
+                itemActive.cost = (itemActive.cost*1.2).toInt()
+                shopMoneyField.text = "${sp.getLong(Keys.COUNT_OF_OIL,0)}"
             }
         },
             { itemActive: ItemActive, textView: TextView ->
                 var sp = getSharedPreferences(Keys.DATA_ABOUT_APP, Context.MODE_PRIVATE)
+                if(ItemActiveName.getInitialCounts().contains(itemActive.cost)) {
+                    itemActive.cost =
+                        (1.2.pow(sp.getInt(itemActive.id, 0).toDouble()) * itemActive.cost).toInt()
+                }
                 textView.text = sp.getInt(itemActive.id,0).toString()
         })
 
@@ -55,19 +66,37 @@ class ShopActivity : AppCompatActivity() {
                     apply()
                 }
                 textView.text = sp.getInt(itemPassive.id, 0).toString()
-                itemPassive.cost = (itemPassive.cost * 1.2).toInt()
+                itemPassive.cost = (itemPassive.cost*1.2).toInt()
+                shopMoneyField.text = "${sp.getLong(Keys.COUNT_OF_OIL,0)}"
             }
         },
             {
                 itemPassive: ItemPassive, textView: TextView ->
                 var sp = getSharedPreferences(Keys.DATA_ABOUT_APP,Context.MODE_PRIVATE)
+                if(ItemPassiveName.getInitialCosts().contains(itemPassive.cost)) {
+                    itemPassive.cost = (1.2.pow(
+                        sp.getInt(itemPassive.id, 0).toDouble()
+                    ) * itemPassive.cost).toInt()
+                }
                 textView.text = sp.getInt(itemPassive.id, 0).toString()
             })
 
 
-        btnGoToMain.setOnClickListener{
+        btnGoToMain.setOnClickListener {
             startActivity(Intent(this,MainActivity::class.java))
         }
+    }
+
+    private fun getCountOfOil(sp: SharedPreferences) {
+        val timer = Timer()
+        timer.schedule(object : TimerTask() {
+            override fun run() {
+                var counter = sp.getLong(Keys.COUNT_OF_OIL,0)
+                runOnUiThread(Runnable {
+                    shopMoneyField.text = "${counter}"
+                })
+            }
+        }, 0, 1100)
     }
 
 }
