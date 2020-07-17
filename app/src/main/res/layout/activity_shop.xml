@@ -92,6 +92,30 @@
         app:layout_constraintTop_toBottomOf="@+id/tvShopDescription"
         tools:listitem="@layout/item_view" />
 
+    <TextView
+        android:id="@+id/shopMoneyField"
+        style="@style/tvMainStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/tvShopDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintStart_toEndOf="@+id/btnGoToMain"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.28" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvShopDescription"
+        app:layout_constraintEnd_toStartOf="@+id/shopMoneyField"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btnGoToMain"
+        app:srcCompat="@drawable/drop" />
+
 
     <!--    <androidx.recyclerview.widget.RecyclerView-->
 <!--        android:id="@+id/rvItems2"-->

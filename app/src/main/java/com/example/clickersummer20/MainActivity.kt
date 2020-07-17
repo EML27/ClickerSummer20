@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
 
         var sp = getSharedPreferences(Keys.DATA_ABOUT_APP, Context.MODE_PRIVATE)
 
-
         checkSharedPref(sp)
 
         startService() // если уже запущен, то повторного запуска не будет(смотреть реализацию)

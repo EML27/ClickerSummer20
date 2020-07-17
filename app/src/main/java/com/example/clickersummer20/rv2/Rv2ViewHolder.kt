@@ -23,7 +23,8 @@ class Rv2ViewHolder(
         Name_item.text = item.nameItem
         Upgrade.text = "+${item.upgrade}/сек"
         btnToast.text = item.cost.toString()
-        btnToast.setOnClickListener { clickLambda(item,tvElementCounter)
+        btnToast.setOnClickListener {
+            clickLambda(item,tvElementCounter)
             btnToast.text = item.cost.toString()
         }
     }
