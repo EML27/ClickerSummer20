@@ -83,7 +83,7 @@ class ShopActivity : AppCompatActivity() {
 
 
         btnGoToMain.setOnClickListener {
-            startActivity(Intent(this,MainActivity::class.java))
+            onBackPressed()
         }
     }
 
