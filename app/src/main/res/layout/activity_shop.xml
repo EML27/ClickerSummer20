@@ -34,11 +34,11 @@
         style="@style/tvMainStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="Here you can buy various improvements"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"
         app:layout_constraintTop_toBottomOf="@+id/btnGoToMain"
         />
 
@@ -58,11 +58,11 @@
         android:id="@+id/tvForPassiveIncome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:text="@string/for_passive_income"
         app:layout_constraintBottom_toTopOf="@id/rvPassiveImprovements"
         app:layout_constraintEnd_toEndOf="@+id/rvPassiveImprovements"
         app:layout_constraintTop_toBottomOf="@id/tvShopDescription"
+        android:layout_marginEnd="8dp"
         style="@style/tvMainStyle"/>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -70,13 +70,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/rvPassiveImprovements"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvShopDescription"
+        android:layout_marginEnd="8dp"
         tools:listitem="@layout/item_view" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -97,20 +97,18 @@
         style="@style/tvMainStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="198dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/tvShopDescription"
+        app:layout_constraintBottom_toBottomOf="@+id/btnGoToMain"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.896"
         app:layout_constraintStart_toEndOf="@+id/btnGoToMain"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.28" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="40dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/tvShopDescription"
+        app:layout_constraintBottom_toBottomOf="@+id/shopMoneyField"
         app:layout_constraintEnd_toStartOf="@+id/shopMoneyField"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btnGoToMain"
